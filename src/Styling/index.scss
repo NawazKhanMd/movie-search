@@ -1,0 +1,341 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+// Don't allow the screen to get any narrower than we are comfortable with.
+#root{
+    height:100vh;
+  background-color: $primary_background;
+}
+.App {
+    background-color: $primary_background;
+  font-family: 'Comfortaa';
+  height:100vh;
+}
+.home-container{
+   height:100%;
+   overflow: hidden;
+h1{
+    color:$primary_text_clr;
+    font-size: xxx-large;
+}
+p{
+    color: $primary_text_clr ;
+   
+}
+.input-container{
+    height:100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;       
+    // border-radius: 10px;
+    // border:20px solid $secondary_background;
+    input{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid  $bright_green;
+        height: 100px;
+        font-size: 30px; 
+        outline: none;
+        width: 100%;
+    }
+    .search-btn{
+        background-color: $bright_green;
+        outline: none;
+        height: 100px;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid  $bright_green;
+        display: flex;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-left: -2px;
+        svg{
+            font-size: 25px;
+            color:white;
+        }
+        
+    }
+    .search-btn:hover {
+        svg{
+        font-size: 30px;
+      }}
+}
+.input-card{
+    border: 20px solid $secondary_background;
+    display: flex;
+    flex-direction: row;
+    background-color: $secondary_background;
+    border-radius: 10px;
+    justify-content: center;
+}
+.movies-container{
+    height: 80%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    img{
+        background-color: white;
+        height: 250px;
+        background-image: url('../images/coming_soon.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+}
+.un-fav-button{
+    position: absolute;
+    background-color: $primary_background;
+    padding: 8px;
+    font-size: 50px;
+    color: $light_green;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50px;
+    padding-top: 11px;
+    cursor: pointer;
+    // box-shadow: 0px 0px 10px black;
+}
+.fav-button{
+    position: absolute;
+    background-color: $primary_background;
+    padding: 8px;
+    font-size: 50px;
+    color: $orange;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50px;
+    padding-top: 11px;
+    cursor: pointer;
+    // box-shadow: 0px 0px 10px black;
+}
+.card{
+    background-color: $bright_green;
+}
+.card-title{
+    font-size: 16px;
+    color: white;
+}
+.card-text{
+    font-size: 15px;
+    color: ghostwhite;
+    margin:0;
+}
+}
+.no-movie-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    img{
+        width:  40%;
+    }
+    p{
+        color:$orange;
+        font-weight: bold;
+    }
+}
+.movies-container::-webkit-scrollbar {
+    display: none;
+  }
+.movie-card{
+    border: 20px solid $secondary_background;
+    background-color: $secondary_background;
+    border-radius: 10px;
+    margin:20px;
+    img{
+        height:100px;
+        width:100px
+    }
+    
+}
+.slide-panel{
+    background-color: $light_green;
+    height:0%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right:0;
+    z-index: 1;
+    .card-img-top{
+        width: 200px;
+        min-width: 100%;
+        z-index: 1;
+    }
+    .slide-panel-imageBoard{
+        height: 30%;
+        background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    img{
+        background-color: white;
+        height: 250px;
+        min-width: 100%;
+        background-image: url('../images/coming_soon.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+}
+    .card{
+        margin-top:50%;
+    }
+    }
+    .slide-panel-detailsBoard{
+        height: 70%;
+    background-color: white;
+    overflow-y: auto;
+    }
+    .close-button{
+        position: absolute;
+        background-color: #22343C;
+        font-size: 30px;
+        color: #3ED598;
+        right: 10px;
+        top: 10px;
+        padding: 3px;
+        cursor: pointer;
+        width: 30px;
+        border-radius: 30px;
+    }
+    .small-un-fav-button{
+        background-color: $bright_green;
+        color: $light_green;
+        position: absolute;
+        font-size: 30px;
+        right: 10px;
+        top: 50px;
+        padding: 3px;
+        padding-top: 5px;
+        cursor: pointer;
+        width: 30px;
+        border-radius: 30px;
+    }
+    .small-fav-button{
+        background-color: $primary_background;
+        color: $orange;
+        position: absolute;
+        font-size: 30px;
+        right: 10px;
+        top: 50px;
+        padding: 3px;
+        padding-top: 5px;
+        cursor: pointer;
+        width: 30px;
+        border-radius: 30px;
+        // box-shadow: 0px 0px 10px black;
+    }
+}
+.fav-movies-btn{
+    position: fixed;
+    top: 25px;
+    right: 0;
+    background-color: $secondary_background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 50px;
+    height: 100px;
+    width: 100px;
+    border-top-left-radius: 50px;
+
+    .close-button{
+        background-color: #22343C;
+        font-size: 30px;
+        color: #3ED598;
+        padding: 3px;
+        cursor: pointer;
+        width: 30px;
+        border-radius: 30px;
+    }
+    .small-fav-button{
+        background-color: $primary_background;
+        color: $orange;
+        font-size: 30px;
+        padding: 3px;
+        padding-top: 5px;
+        cursor: pointer;
+        width: 30px;
+        border-radius: 30px;
+        // box-shadow: 0px 0px 10px black;
+    }
+}
+.dontMove{
+    animation: none;
+}
+.move{
+    animation: mymove 1.5s ;
+    animation-fill-mode: forwards;
+}
+@keyframes mymove {
+  from {height:100%;}
+  to {height:20%;}
+}
+
+.slideUp{
+    animation: slideup 0.5s ;
+    animation-fill-mode: forwards;
+}
+@keyframes slideup {
+  from {height:0%;opacity: 0.3;}
+  to {height:100%;opacity: 1}
+}
+.slideDown{
+    animation: slidedown 0.5s ;
+    animation-fill-mode: forwards;
+}
+@keyframes slidedown {
+  from {height:100%;opacity: 1;}
+  to {height:0%;opacity: 0}
+}
+}
+
+//reusable stylings
+
+.margin0{
+    margin: pixelX5(0);
+}
+.orange-text{
+    color:$orange;
+    letter-spacing: 2;
+}
+.one-line{
+    margin-bottom: 10px;
+    flex-direction: row;
+    p{
+        display: contents;
+    }
+    h3{
+        display: contents;
+    }
+}
+
+//media Quiries
+
+@media only screen and (max-width: 600px) {
+    .no-movie-container{
+        img{
+            width: 80% !important;
+        }
+    }
+    .home-container{
+    h1{
+        color:$primary_text_clr;
+        font-size: larger;
+    }}
+    .input-container{
+        height:20% !important;
+        input{
+            height: 60px !important;
+            font-size: 20px !important;
+        }
+        .search-btn{
+            height: auto !important;
+        }
+    }
+    .slide-panel{
+        .slide-panel-detailsBoard{
+            padding-top: 150px;
+        }
+    }
+  }
+

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Reducer Handles load Emissions  1`] = `
+Object {
+  "Address": Array [],
+  "Cities": Array [],
+  "Restaurants": Array [],
+  "SavedRestaurants": Array [],
+  "loading": false,
+}
+`;
+
+exports[`Home Reducer Handles load Events  1`] = `
+Object {
+  "Address": Array [],
+  "Cities": Array [],
+  "Restaurants": Array [],
+  "SavedRestaurants": Array [],
+  "loading": false,
+}
+`;
+
+exports[`Home Reducer Handles load Incidents  1`] = `
+Object {
+  "Address": Array [],
+  "Cities": Array [],
+  "Restaurants": Array [],
+  "SavedRestaurants": Array [],
+  "loading": false,
+}
+`;
+
+exports[`Home Reducer Handles load Restaurants  1`] = `
+Object {
+  "Address": Array [
+    Object {
+      "label": "1 Benvenuto Place",
+      "value": "1 Benvenuto Place",
+    },
+  ],
+  "Cities": Array [],
+  "Restaurants": Array [
+    Object {
+      "address": "1 Benvenuto Place",
+      "area": "Toronto / SW Ontario",
+      "city": "Toronto",
+      "country": "CA",
+      "id": 21307,
+      "image_url": "https://www.opentable.com/img/restimages/21307.jpg",
+      "lat": 43.68207,
+      "lng": -79.40041,
+      "mobile_reserve_url": "http://mobile.opentable.com/opentable/?restId=21307",
+      "name": "Scaramouche Restaurant",
+      "phone": "4169618011",
+      "postal_code": "M4V 2L1",
+      "price": 4,
+      "reserve_url": "http://www.opentable.com/single.aspx?rid=21307",
+      "state": "ON",
+    },
+  ],
+  "SavedRestaurants": Array [
+    Object {
+      "address": "1 Benvenuto Place",
+      "area": "Toronto / SW Ontario",
+      "city": "Toronto",
+      "country": "CA",
+      "id": 21307,
+      "image_url": "https://www.opentable.com/img/restimages/21307.jpg",
+      "lat": 43.68207,
+      "lng": -79.40041,
+      "mobile_reserve_url": "http://mobile.opentable.com/opentable/?restId=21307",
+      "name": "Scaramouche Restaurant",
+      "phone": "4169618011",
+      "postal_code": "M4V 2L1",
+      "price": 4,
+      "reserve_url": "http://www.opentable.com/single.aspx?rid=21307",
+      "state": "ON",
+    },
+  ],
+  "loading": false,
+}
+`;

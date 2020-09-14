@@ -1,0 +1,24 @@
+
+//
+// Bootstrap modules
+//
+
+
+$primary_background:#22343C;
+$secondary_background:#30444E;
+$primary_red_background:rgb(255,49,90);
+
+
+$primary_text_clr:rgb(105,113,114);
+$selected_text_clr:rgb(55,149,176);
+
+$orange:#FF565E;
+$white:rgb(255,255,255);
+
+$bright_green : #3ED598;
+$light_green : #286053;
+
+@function pixelX5($multiple: 1) {
+    @return $multiple * 5px;
+  }
+
