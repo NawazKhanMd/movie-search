@@ -1,4 +1,4 @@
-# Restaurant-search
+# Movie-search
 
 React JS application 
 Responsive Site --- Using React-bootstrap, Redux, Redux thunk.
