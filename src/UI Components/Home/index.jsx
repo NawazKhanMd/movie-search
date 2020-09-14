@@ -76,20 +76,22 @@ export const Home = () => {
     }
   }
 
+
+  //Since this app has only One screen i have put all the components here, no other js files for ui
   return (
     <div className="home-container">
      
      
       {/* This is for Showing FavMovies show/hide buttons */}
-     <diV className="fav-movies-btn" >
+     <div className="fav-movies-btn" >
         {showFavMovies && <FontAwesomeIcon onClick={removeFavMovieView} className="close-button" icon={faTimes} />}
         {!showFavMovies && <FontAwesomeIcon onClick={getFavMovies} className="small-fav-button" icon={faHeart} />}
-      </diV>
+      </div>
       
 
       {/* This is form to handle Search input View and it moves up as the search results load */}
       <div className={searching ? "input-container  move" : "input-container  dontMove"}>
-        <form onSubmit={handleSubmit} autocomplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off">
           <Row className="justify-content-md-center margin0">
             <Col xs={10} md={12} lg={12} >
               <div className="input-card">
@@ -134,28 +136,6 @@ export const Home = () => {
                 <p>Plot: </p>
                 <p><b>{selectedMovie.Plot}</b></p>
               </div>
-              {/* Actors: "Kevin Conroy, Efrem Zimbalist Jr., Bob Hastings"
-Awards: "Won 1 Primetime Emmy. Another 4 wins & 19 nominations."
-Country: "USA"
-Director: "N/A"
-Genre: "Animation, Action, Adventure, Family, Sci-Fi"
-Language: "English"
-Metascore: "N/A"
-Plot: "Heir to the Wayne family fortune, Bruce Wayne lives by day as a seemingly lavish playboy millionaire socialite, but by night assumes the role of his crime-fighting alter-ego: the caped crusader known as Batman. Throughout the Animated Series, Batman receives help from sidekicks Robin and Batgirl, as well as Police Commissioner Gordon, in protecting the streets of Gotham City from a large rogue's gallery of criminals, lunatics and nemeses."
-Poster: "https://m.media-amazon.com/images/M/MV5BOTM3MTRkZjQtYjBkMy00YWE1LTkxOTQtNDQyNGY0YjYzNzAzXkEyXkFqcGdeQXVyOTgwMzk1MTA@._V1_SX300.jpg"
-Rated: "TV-PG"
-Ratings: [{…}]
-Released: "05 Sep 1992"
-Response: "True"
-Runtime: "23 min"
-Title: "Batman: The Animated Series"
-Type: "series"
-Writer: "Bob Kane, Eric Radomski, Bruce Timm, Paul Dini, Bill Finger"
-Year: "1992–1995"
-imdbID: "tt0103359"
-imdbRating: "9.0"
-imdbVotes: "84,064"
-totalSeasons: "4" */}
             </Col>
           </Row>
         </div>

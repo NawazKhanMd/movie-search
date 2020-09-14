@@ -1,82 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home Reducer Handles load Emissions  1`] = `
+exports[`Home Reducer Handles concatenates 2 movie objects  1`] = `
 Object {
-  "Address": Array [],
-  "Cities": Array [],
-  "Restaurants": Array [],
-  "SavedRestaurants": Array [],
+  "favMovies": Array [],
   "loading": false,
+  "movies": Array [
+    Object {
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
+      "Title": "Spider-Man",
+      "Type": "movie",
+      "Year": "2002",
+      "imdbID": "tt0145487",
+    },
+    Object {
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
+      "Title": "Spider-Man 2",
+      "Type": "movie",
+      "Year": "2002",
+      "imdbID": "tt0145487",
+    },
+  ],
+  "noMoviesFound": false,
+  "selectedMovie": Object {},
 }
 `;
 
-exports[`Home Reducer Handles load Events  1`] = `
+exports[`Home Reducer Handles load 1 movie  1`] = `
 Object {
-  "Address": Array [],
-  "Cities": Array [],
-  "Restaurants": Array [],
-  "SavedRestaurants": Array [],
+  "favMovies": Array [],
   "loading": false,
+  "movies": Array [
+    Object {
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
+      "Title": "Spider-Man",
+      "Type": "movie",
+      "Year": "2002",
+      "imdbID": "tt0145487",
+    },
+  ],
+  "noMoviesFound": false,
+  "selectedMovie": Object {},
 }
 `;
 
-exports[`Home Reducer Handles load Incidents  1`] = `
+exports[`Home Reducer Removes Movies from Array 1`] = `
 Object {
-  "Address": Array [],
-  "Cities": Array [],
-  "Restaurants": Array [],
-  "SavedRestaurants": Array [],
+  "favMovies": Array [],
   "loading": false,
+  "movies": Array [],
+  "noMoviesFound": true,
+  "selectedMovie": Object {},
 }
 `;
 
-exports[`Home Reducer Handles load Restaurants  1`] = `
+exports[`Home Reducer updates Favourite Movies Array 1`] = `
 Object {
-  "Address": Array [
-    Object {
-      "label": "1 Benvenuto Place",
-      "value": "1 Benvenuto Place",
-    },
-  ],
-  "Cities": Array [],
-  "Restaurants": Array [
-    Object {
-      "address": "1 Benvenuto Place",
-      "area": "Toronto / SW Ontario",
-      "city": "Toronto",
-      "country": "CA",
-      "id": 21307,
-      "image_url": "https://www.opentable.com/img/restimages/21307.jpg",
-      "lat": 43.68207,
-      "lng": -79.40041,
-      "mobile_reserve_url": "http://mobile.opentable.com/opentable/?restId=21307",
-      "name": "Scaramouche Restaurant",
-      "phone": "4169618011",
-      "postal_code": "M4V 2L1",
-      "price": 4,
-      "reserve_url": "http://www.opentable.com/single.aspx?rid=21307",
-      "state": "ON",
-    },
-  ],
-  "SavedRestaurants": Array [
-    Object {
-      "address": "1 Benvenuto Place",
-      "area": "Toronto / SW Ontario",
-      "city": "Toronto",
-      "country": "CA",
-      "id": 21307,
-      "image_url": "https://www.opentable.com/img/restimages/21307.jpg",
-      "lat": 43.68207,
-      "lng": -79.40041,
-      "mobile_reserve_url": "http://mobile.opentable.com/opentable/?restId=21307",
-      "name": "Scaramouche Restaurant",
-      "phone": "4169618011",
-      "postal_code": "M4V 2L1",
-      "price": 4,
-      "reserve_url": "http://www.opentable.com/single.aspx?rid=21307",
-      "state": "ON",
-    },
+  "favMovies": Array [
+    "tt0145487",
   ],
   "loading": false,
+  "movies": Array [],
+  "noMoviesFound": true,
+  "selectedMovie": Object {},
+}
+`;
+
+exports[`Home Reducer updates removes movie Favourite Movies Array 1`] = `
+Object {
+  "favMovies": Array [],
+  "loading": false,
+  "movies": Array [],
+  "noMoviesFound": true,
+  "selectedMovie": Object {},
+}
+`;
+
+exports[`Home Reducer updates selected movie details 1`] = `
+Object {
+  "favMovies": Array [],
+  "loading": false,
+  "movies": Array [],
+  "noMoviesFound": true,
+  "selectedMovie": Object {
+    "Actors": "Tobey Maguire, Willem Dafoe, Kirsten Dunst, James Franco",
+    "Awards": "Nominated for 2 Oscars. Another 16 wins & 61 nominations.",
+    "BoxOffice": "$403,706,375",
+    "Country": "USA",
+    "DVD": "01 Nov 2002",
+    "Director": "Sam Raimi",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Language": "English",
+    "Metascore": "73",
+    "Plot": "Based on Marvel Comics",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
+    "Production": "Columbia Pictures",
+    "Rated": "PG-13",
+    "Ratings": Array [
+      Object {
+        "Source": "Internet Movie Database",
+        "Value": "7.3/10",
+      },
+      Object {
+        "Source": "Rotten Tomatoes",
+        "Value": "90%",
+      },
+      Object {
+        "Source": "Metacritic",
+        "Value": "73/100",
+      },
+    ],
+    "Released": "03 May 2002",
+    "Response": "True",
+    "Runtime": "121 min",
+    "Title": "Spider-Man",
+    "Type": "movie",
+    "Website": "N/A",
+    "Writer": "Stan Lee (Marvel comic book),Steve Ditko (Marvel comic book), David Koepp (screenplay)",
+    "Year": "2002",
+    "imdbID": "tt0145487",
+    "imdbRating": "7.3",
+    "imdbVotes": "674,123",
+  },
 }
 `;

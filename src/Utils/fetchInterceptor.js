@@ -1,7 +1,7 @@
 const key = JSON.parse(process.env.REACT_APP_SECRETS).REACT_APP_API_KEY
 export const restApiUrls = {
-omdbapiURL:`http://www.omdbapi.com/?s={searchKey}&apikey=${key}&page={pageNumber}`,
-getMovieDetails :`http://www.omdbapi.com/?i={IMDBkey}&apikey=${key}&plot=full`
+omdbapiURL:`https://www.omdbapi.com/?s={searchKey}&apikey=${key}&page={pageNumber}`,
+getMovieDetails :`https://www.omdbapi.com/?i={IMDBkey}&apikey=${key}&plot=full`
 }
 const axios = require('axios');
 

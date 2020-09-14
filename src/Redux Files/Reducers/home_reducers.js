@@ -1,7 +1,4 @@
 import { home_action_types as atn_typ } from '../Actions & Constants/constants'
-
-console.log()
-
 export const initialState = {
     loading: false,
     movies: [],

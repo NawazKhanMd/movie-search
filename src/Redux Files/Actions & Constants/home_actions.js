@@ -50,6 +50,7 @@ export const getSearchResults = (key, pageNumber = 1,) => (dispatch) => {
 }
 export const getAllFavMovies = () => (dispatch) => {
   dispatch(toogleLoader(true))
+  dispatch(removeAllMoviesFromView());
   let FavMovieIDs = JSON.parse(localStorage.getItem('favMovies'));
   FavMovieIDs.forEach((id,index) => {
     let fetchObj = {
@@ -63,7 +64,7 @@ export const getAllFavMovies = () => (dispatch) => {
           dispatch({
             type: action_types.get_movies_success,
             payload: {Search:[resp.data.data]},
-            pageNumber: index + 1
+            pageNumber: index + 2
           })
         } else {
           dispatch({
@@ -87,9 +88,7 @@ export const getMovieDetails = (imdbID) => (dispatch) => {
   return RequestAPI(fetchObj).then(resp => {
     dispatch(toogleLoader(false))
     if (resp.type == 'success') {
-      console.log(resp.data)
       if (resp.data.data.Response == 'True') {
-        console.log(resp.data.data)
         dispatch({
           type: action_types.get_movie_details,
           payload: resp.data.data
