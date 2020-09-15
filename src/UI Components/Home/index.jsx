@@ -18,7 +18,7 @@ export const Home = () => {
   const [showFavMovies, setFavMoviesView] = useState(false);           // Show/Hide Fav Movies list , if this is true it will load all the fav movies 
   const [searchBy, setSearchBy] = useState('');                        // Search text inputs value is saved into this state
   const [pageNumber, setPageNumber] = useState(1);                     // keeping record of page number for infinite scrolling
-  const [dropDownValue, setDropDownValue] = useState('All');  
+  const [dropDownValue, setDropDownValue] = useState('ALL');  
   //Form Sumbit / search button callback to search for the movie name
   const handleSubmit = (e) => {
     const form = new FormData(e.target);
