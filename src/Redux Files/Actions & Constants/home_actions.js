@@ -23,10 +23,14 @@ export const removeAllMoviesFromView = () => (dispatch) => {
     pageNumber: 1
   })
 }
-export const getSearchResults = (key, pageNumber = 1,) => (dispatch) => {
+export const getSearchResults = (key, pageNumber = 1,type) => (dispatch) => {
   dispatch(toogleLoader(true))
+  let modified_url = restApiUrls.omdbapiURL.replace('{searchKey}', key).replace('{pageNumber}', pageNumber);
+  if(type != "ALL"){
+    modified_url += `&type=${type}`
+  }
   let fetchObj = {
-    url: restApiUrls.omdbapiURL.replace('{searchKey}', key).replace('{pageNumber}', pageNumber),
+    url: modified_url,
     method: 'GET'
   }
   return RequestAPI(fetchObj).then(resp => {

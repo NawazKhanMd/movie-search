@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {  Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card, Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import {  getSearchResults, updateFavMovies, getMovieDetails, getAllFavMovies, removeAllMoviesFromView } from '../../Redux Files/Actions & Constants'
+import { getSearchResults, updateFavMovies, getMovieDetails, getAllFavMovies, removeAllMoviesFromView } from '../../Redux Files/Actions & Constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 export const Home = () => {
@@ -12,13 +12,13 @@ export const Home = () => {
   const noMoviesFound = useSelector(state => state.home.noMoviesFound);     // Handling if there are no Movies found show/Hide View in UI
   const favMovies = useSelector(state => state.home.favMovies);             // Your selected Fav movies IMDB ID's
   const selectedMovie = useSelector(state => state.home.selectedMovie);     // Once you select a movie card this object will hold the data
-  
+
   const [searching, setSearchingFlag] = useState(false);               //This is callback if you started the search true = Search started
   const [showDetails, setDetailsView] = useState(false);               // Show/Hide the Movie Details banner, if you click on the Movie card this will become true anf will slideup the movie details banner
   const [showFavMovies, setFavMoviesView] = useState(false);           // Show/Hide Fav Movies list , if this is true it will load all the fav movies 
   const [searchBy, setSearchBy] = useState('');                        // Search text inputs value is saved into this state
   const [pageNumber, setPageNumber] = useState(1);                     // keeping record of page number for infinite scrolling
-
+  const [dropDownValue, setDropDownValue] = useState('All');  
   //Form Sumbit / search button callback to search for the movie name
   const handleSubmit = (e) => {
     const form = new FormData(e.target);
@@ -26,7 +26,7 @@ export const Home = () => {
     setSearchBy(key)
     setSearchingFlag(true)
     setFavMoviesView(false)
-    dispatch(getSearchResults(key, 1))
+    dispatch(getSearchResults(key, 1,dropDownValue))
     setPageNumber(1)
     e.preventDefault();
   }
@@ -38,8 +38,8 @@ export const Home = () => {
   const handleScroll = (e) => {
     if (!showFavMovies) {
       const target = e.target;
-      if (Math.round(Number(target.scrollHeight) - Number(target.scrollTop)) === target.clientHeight || Math.round(Number(target.scrollHeight) - Number(target.scrollTop)) === target.clientHeight+1) {
-        dispatch(getSearchResults(searchBy, pageNumber + 1))
+      if (Math.round(Number(target.scrollHeight) - Number(target.scrollTop)) === target.clientHeight || Math.round(Number(target.scrollHeight) - Number(target.scrollTop)) === target.clientHeight + 1) {
+        dispatch(getSearchResults(searchBy, pageNumber + 1,dropDownValue))
         setPageNumber(pageNumber + 1)
       }
     }
@@ -48,7 +48,7 @@ export const Home = () => {
   const openModal = (movie) => {
     setTimeout(() => {
       setDetailsView(true)
-    }, 200); 
+    }, 200);
     dispatch(getMovieDetails(movie.imdbID))
   }
   // slides back the movie details View
@@ -58,21 +58,21 @@ export const Home = () => {
   //Gets all your fav movies and renders in a list
   const getFavMovies = () => {
     const favMovies = localStorage.getItem('favMovies');
-    if(favMovies != null){
-    setSearchingFlag(true)
-    setFavMoviesView(true)
-    dispatch(getAllFavMovies())
-  }else{
-    alert('Please select some fav movies')
-  }
+    if (favMovies != null) {
+      setSearchingFlag(true)
+      setFavMoviesView(true)
+      dispatch(getAllFavMovies())
+    } else {
+      alert('Please select some fav movies')
+    }
   }
   //remove the fevourite movie View selection back to original page with text input
   const removeFavMovieView = () => {
     if (showFavMovies) {
-      
-    setSearchingFlag(false)
-    setFavMoviesView(false)
-    dispatch(removeAllMoviesFromView())
+
+      setSearchingFlag(false)
+      setFavMoviesView(false)
+      dispatch(removeAllMoviesFromView())
     }
   }
 
@@ -80,14 +80,14 @@ export const Home = () => {
   //Since this app has only One screen i have put all the components here, no other js files for ui
   return (
     <div className="home-container">
-     
-     
+
+
       {/* This is for Showing FavMovies show/hide buttons */}
-     <div className="fav-movies-btn" >
+      <div className="fav-movies-btn" >
         {showFavMovies && <FontAwesomeIcon onClick={removeFavMovieView} className="close-button" icon={faTimes} />}
         {!showFavMovies && <FontAwesomeIcon onClick={getFavMovies} className="small-fav-button" icon={faHeart} />}
       </div>
-      
+
 
       {/* This is form to handle Search input View and it moves up as the search results load */}
       <div className={searching ? "input-container  move" : "input-container  dontMove"}>
@@ -95,7 +95,20 @@ export const Home = () => {
           <Row className="justify-content-md-center margin0">
             <Col xs={10} md={12} lg={12} >
               <div className="input-card">
-                <input placeholder="Search for a movie" name="Search" type="text-input" ></input>
+                <input placeholder="Search" name="Search" type="text-input" ></input>
+                <InputGroup>
+                  <DropdownButton
+                    as={InputGroup.Append}
+                    variant="outline-secondary"
+                    title={dropDownValue.charAt(0).toUpperCase()}
+                    id="input-group-dropdown-2"
+                  >
+                    <Dropdown.Item onClick={() => setDropDownValue('ALL')} href="#">All</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setDropDownValue('movie')} href="#">Movies</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setDropDownValue('series')} href="#">Series</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setDropDownValue('episode')} href="#">Episodes</Dropdown.Item>
+                  </DropdownButton>
+                </InputGroup>
                 <button type="submit" className="search-btn">
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
@@ -106,7 +119,7 @@ export const Home = () => {
         </form>
 
       </div>
-      
+
 
       {/* This is to show the selected movies Details in a sliding view moves up/down depending on button clicks */}
       <div className={showDetails ? "slide-panel  slideUp" : "slide-panel  slideDown"}>
@@ -140,18 +153,18 @@ export const Home = () => {
           </Row>
         </div>
       </div>
-      
-      
+
+
       {/*If there is a error from api or we dont have movies, handling such issues for user */}
       {noMoviesFound && <div className="no-movie-container">
-          <img src={require('../../images/no_data.jpg')} />
-          <p>Sorry we did not find anything</p>
-        </div> }
+        <img src={require('../../images/no_data.jpg')} />
+        <p>Sorry we did not find anything</p>
+      </div>}
 
 
       {/*Iterates Cards as the movies api returns list of movies, slides up and becomes 80% of the screen */}
       <div className="movies-container" onScroll={handleScroll}>
-      {showFavMovies && <h5 className="orange-text text-center">Your Favourite Movies</h5>}
+        {showFavMovies && <h5 className="orange-text text-center">Your Favourite Movies</h5>}
         <Row className="justify-content-md-center margin0">
           {movies.map((movie, index) =>
             <Col key={index} xs={12} md={4} lg={2}>
